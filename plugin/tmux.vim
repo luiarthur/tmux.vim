@@ -43,6 +43,7 @@ endfunction
 
 " Start a REPL (julia/ipython/R/bash) in TMUX pane below.
 function! s:StartRepl()
+  let cmd = ""
   let ext = expand("%:e")
   if ext == "R"
     let cmd = "R"
@@ -50,14 +51,14 @@ function! s:StartRepl()
     let cmd = "julia"
   elseif ext == "py"
     let cmd = "ipython --no-autoindent"
-  else
-    let cmd = "bash"
   endif
-  let cmd = input("Command to execute: ", cmd)
+
+  let exec_cmd = ""
   if cmd != ""
-    "call system("tmux set-option default-path " . shellescape(expand("%:p:h")))
-    call system("tmux split-window -d -p 34 " . shellescape("exec " . cmd))
+    let exec_cmd = shellescape("exec " . cmd)
   endif
+
+  call system("tmux split-window -d -p 34 " . exec_cmd)
 endfunction
 
 " Source a file into TMUX pane (REPL or BASH) below.
@@ -91,7 +92,7 @@ function! s:SourceFile()
 endfunction
 
 " Plugin mappings.
-nnoremap <silent> <Plug>TmuxStartRepl :<C-U> call <SID>StartRepl()<CR>
+nnoremap <Plug>TmuxStartRepl :<C-U> call <SID>StartRepl()
 nnoremap <silent> <Plug>TmuxSourceFile :<C-U> call <SID>SourceFile()<CR>
 nnoremap <silent> <Plug>TmuxSendLineDown :<C-U> call <SID>SendLine("D")<CR>
 nnoremap <silent> <Plug>TmuxSendLineRight :<C-U> call <SID>SendLine("R")<CR>
