@@ -19,10 +19,6 @@ endfunction
 function s:GetVisualSelection()
   " Copy current visual selection to register "a.
   keepjumps normal! gv"ay']
-  " NOTE: Moving the cursor up a line is a strange hack required to prevent the
-  " cursor from skipping 2 lines. This even works if the cursor was on the
-  " last line of the file...
-  normal! k
   " Return the visual-selected with `\n` appropriately escaped. Then, append `ENTER`
   " at the very end.
   return shellescape(@a . "\r")
@@ -108,6 +104,6 @@ if !exists("g:tmux_default_bindings") || g:tmux_default_bindings
   nmap <C-h> <Plug>TmuxSourceFile<CR>
   nmap <C-j> <Plug>TmuxSendLineDown<CR>
   nmap <C-l> <Plug>TmuxSendLineRight<CR>
-  xmap <C-j> <Plug>TmuxSendVisualDown<CR>
-  xmap <C-l> <Plug>TmuxSendVisualRight<CR>
+  xmap <C-j> <Plug>TmuxSendVisualDown
+  xmap <C-l> <Plug>TmuxSendVisualRight
 endif
