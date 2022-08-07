@@ -5,7 +5,7 @@
 | |_| | | | | | |_| |>  < _\ V /| | | | | | | ~
  \__|_| |_| |_|\__,_/_/\_(_)\_/ |_|_| |_| |_| ~
 
-=============================================================================
+===========================================================================
 Contents                                                           *tmux-toc*
 
 1. Basic Usage
@@ -18,15 +18,15 @@ Contents                                                           *tmux-toc*
 Basic Usage                                                      *tmux-usage*
 
 ===========================================================================
-Navigation                                                       *tmux-navigation*
+Navigation                                                  *tmux-navigation*
 
 
 ===========================================================================
-Installation                                                     *tmux-installation*
+Installation                                              *tmux-installation*
 
 ===========================================================================
-Dependencies                                                     *tmux-dependencies*
+Dependencies                                              *tmux-dependencies*
 
 ===========================================================================
-Supported Languages                                              *tmux-languages*
+Supported Languages                                          *tmux-languages*
 
