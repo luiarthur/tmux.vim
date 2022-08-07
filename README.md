@@ -2,7 +2,7 @@
 Plugin for vim in tmux with REPL support
 
 ## Dependencies
-- `NeoVIM 0.5+`
+- `NeoVIM 0.5+`, `vim7.4+`, `vim8`, or `vim9`
 - `TMUX 3.0a+`
 
 # Installation
@@ -13,7 +13,7 @@ using neovim, a plugin manager is recommended.
 
 ## Usage
 1. Start a `tmux` session.
-2. Open a file in NeoVIM 0.5+
+2. Open a file in NeoVIM / VIM.
 3. In `Normal` mode, type `Ctrl-k`. If the file extension is of a supported
    language (see below), then an appropriate REPL will be spawned in a `tmux` pane below. If the 
    language is not supported, or if you prefer a different REPL, start a terminal
