@@ -15,7 +15,7 @@ Contents                                                           *tmux-toc*
 5. Supported Languages
 
 =============================================================================
-Basic Usage                                                        *tmux-toc*
+Basic Usage                                                      *tmux-usage*
 
 =============================================================================
 Navigation *tmux-navigation*
