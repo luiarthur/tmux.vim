@@ -1,5 +1,13 @@
-tmux.txt    tmux
+*tmux.txt*  A VIM plugin for running vim in tmux.
+ _                               _
+| |_ _ __ ___  _   ___  ____   _(_)_ __ ___
+| __| '_ ` _ \| | | \ \/ /\ \ / / | '_ ` _ \
+| |_| | | | | | |_| |>  < _\ V /| | | | | | |
+ \__|_| |_| |_|\__,_/_/\_(_)\_/ |_|_| |_| |_|
 
-TMUX                                                                     *tmux*
+
 ===============================================================================
-A plugin for running vim in tmux.
+Contents                                                             *tmux-toc*
+
+1. Part 1
+2. Part 2
