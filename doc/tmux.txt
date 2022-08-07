@@ -1,4 +1,4 @@
-*tmux-vim*  A VIM plugin for running vim in tmux.
+*tmux*  A plugin for VIM in tmux with REPL support.
  _                               _            ~
 | |_ _ __ ___  _   ___  ____   _(_)_ __ ___   ~
 | __| '_ ` _ \| | | \ \/ /\ \ / / | '_ ` _ \  ~
@@ -8,5 +8,25 @@
 =============================================================================
 Contents                                                           *tmux-toc*
 
-1. Part 1
-2. Part 2
+1. Basic Usage
+2. Navigation
+3. Installation
+4. Dependencies
+5. Supported Languages
+
+=============================================================================
+Basic Usage                                                        *tmux-toc*
+
+=============================================================================
+Navigation *tmux-navigation*
+
+
+=============================================================================
+Installation  *tmux-installation*
+
+=============================================================================
+Dependencies  *tmux-dependencies*
+
+=============================================================================
+Supported Languages *tmux-languages*
+
