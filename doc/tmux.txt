@@ -1,0 +1,5 @@
+tmux.txt    tmux
+
+TMUX                                                                     *tmux*
+===============================================================================
+A plugin for running vim in tmux.
