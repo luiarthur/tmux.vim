@@ -1,13 +1,14 @@
 " Plugin: tmux.vim
 " Author: Arthur Lui
 " Date: 8 Sep, 2021
+" References: See `:help scope`, `:help registers`.
 
 " A dictionary with the opposite directions to TMUX directions.
-let s:opp_direction_dict = {"D": "U", "R": "L"}
+let s:opp_direction_dict = {'D': 'U', 'R': 'L'}
 
 " Return the opposite direction, given a TMUX direction.
 function! s:Opposite(direction)
-  return get(s:opp_direction_dict, a:direction, "")
+  return get(s:opp_direction_dict, a:direction)
 endfunction
 
 function s:GetCurrentLine()
@@ -43,51 +44,38 @@ endfunction
 
 " Start a REPL (julia/ipython/R/bash) in TMUX pane below.
 function! s:StartRepl()
-  let cmd = ""
-  let ext = expand("%:e")
-  if ext == "R"
-    let cmd = "R"
-  elseif ext == "jl"
-    let cmd = "julia"
-  elseif ext == "py"
-    let cmd = "ipython --no-autoindent"
-  endif
+  let ext = expand('%:e')
+  let cmd = get({
+    \'R': 'R',
+    \'jl': 'julia',
+    \'py': 'ipython --no-autoindent'
+  \}, ext, '')
 
-  let exec_cmd = ""
-  if cmd != ""
-    let exec_cmd = shellescape("exec " . cmd)
-  endif
-
-  call system("tmux split-window -d -p 34 " . exec_cmd)
+  let exec_cmd = (cmd == '') ? '' : shellescape('exec ' . cmd)
+  call system('tmux split-window -d -p 34 ' . exec_cmd)
 endfunction
 
 " Source a file into TMUX pane (REPL or BASH) below.
 function! s:SourceFile()
-  let ext = expand("%:e")
-  let filename = expand("%:p")
-  let cmd = ""
+  let ext = expand('%:e')
+  let filename = expand('%:p')
+  let cmd = ''
 
-  if ext == "R"
-    let cmd = "source('" . filename . "')"
-  elseif ext == "jl"
-    let cmd = "include(\"" . filename . "\")"
-  elseif ext == "scala"
-    let cmd = ":load " . filename
-  elseif ext == "py"
-    let cmd = "exec(open('" . filename . "').read())"
-  elseif ext == "sh"
-    let cmd = "source " . filename
-  elseif ext == "kt"
-    let cmd = ":load  " . filename
-  endif
+  let cmd = get({
+    \'R': 'source("' . filename . '")',
+    \'jl': 'include("' . filename . '")',
+    \'py': 'exec(open("' . filename . '").read())',
+    \'sh': 'source ' . filename,
+    \'kt': 'load: ' . filename,
+    \'scala': 'load: ' . filename,
+  \}, ext, '')
 
-  if cmd == ""
-    " Recursively Send('D') for entire file.
-    %call s:SendLine('D')
+  if cmd == ''
+    %call s:SendLine('D')  " Recursively Send('D') for entire file.
   else
-    call system("tmux select-pane -D")
-    call system("tmux send-keys " . shellescape(cmd . ""))
-    call system("tmux select-pane -U")
+    call system('tmux select-pane -D')
+    call system('tmux send-keys ' . shellescape(cmd . ''))
+    call system('tmux select-pane -U')
   endif
 endfunction
 
@@ -100,7 +88,7 @@ xnoremap <silent> <Plug>TmuxSendVisualDown :<C-U> call <SID>SendVisual("D")<CR>
 xnoremap <silent> <Plug>TmuxSendVisualRight :<C-U> call <SID>SendVisual("R")<CR>
 
 " Default key bindings.
-if !exists("g:tmux_default_bindings") || g:tmux_default_bindings
+if !exists('g:tmux_default_bindings') || g:tmux_default_bindings
   nmap <C-k> <Plug>TmuxStartRepl<CR>
   nmap <C-h> <Plug>TmuxSourceFile<CR>
   nmap <C-j> <Plug>TmuxSendLineDown<CR>
