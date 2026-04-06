@@ -1,10 +1,11 @@
 *tmux*  A plugin for VIM in tmux with REPL support.
- _                               _            ~
-| |_ _ __ ___  _   ___  ____   _(_)_ __ ___   ~
-| __| '_ ` _ \| | | \ \/ /\ \ / / | '_ ` _ \  ~
-| |_| | | | | | |_| |>  < _\ V /| | | | | | | ~
- \__|_| |_| |_|\__,_/_/\_(_)\_/ |_|_| |_| |_| ~
-
+>
+  _                               _           
+ | |_ _ __ ___  _   ___  ____   _(_)_ __ ___  
+ | __| '_ ` _ \| | | \ \/ /\ \ / / | '_ ` _ \ 
+ | |_| | | | | | |_| |>  < _\ V /| | | | | | |
+  \__|_| |_| |_|\__,_/_/\_(_)\_/ |_|_| |_| |_|
+<
 ===========================================================================
 Contents                                                           *tmux-toc*
 
@@ -80,3 +81,5 @@ Supported Languages                                          *tmux-languages*
 - Julia (`*.jl`). Requires Julia programming language.
 - Python (`*.py`). Requires `ipython`.
 - R (`*.R`). Requires `R` programming language.
+
+vim:tw=80:ft=help
